@@ -6,6 +6,11 @@
 <title>NK Biler</title>
 <meta name="description" content="NK Biler Svendborg: 72 brugte biler, klassikere og varevogne. Eget værksted siden 2008, finansiering, leasing og biludlejning. Porthusvej 129.">
 <link rel="icon" href="img/logo.png">
+<meta property="og:type" content="website"><meta property="og:title" content="NK Biler · Bilhus og autoværksted i Svendborg"><meta property="og:description" content="72 brugte biler, klassikere og varevogne. Eget værksted siden 2008, finansiering, leasing og biludlejning."><meta property="og:image" content="studio/664d5e6a9e82438eb7bcceb4d0d8403e.jpg"><meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#121417">
+<link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="img/logo.png">
+<link rel="preload" as="image" href="img/664d5e6a9e82438eb7bcceb4d0d8403e.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"AutoDealer","name":"NK Biler ApS","url":"https://www.nkbiler.dk","telephone":"+4532111696","email":"kontakt@nkbiler.dk","image":"img/building.jpg","logo":"img/logo.png","address":{"@type":"PostalAddress","streetAddress":"Porthusvej 129","postalCode":"5700","addressLocality":"Svendborg","addressCountry":"DK"},"geo":{"@type":"GeoCoordinates","latitude":55.0596,"longitude":10.6068},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"08:00","closes":"17:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"08:00","closes":"16:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"10:00","closes":"14:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"11:00","closes":"16:00"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.4","reviewCount":"78"},"sameAs":["https://www.facebook.com/nkbiler/","https://www.instagram.com/nkbiler/","https://www.tiktok.com/@nk_biler"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -38,7 +43,24 @@ h1{font-size:clamp(2.3rem,5.5vw,4.4rem);font-weight:800}h2{font-size:clamp(1.6re
 .btn-sm{padding:10px 16px;font-size:.9rem;border-radius:10px}
 .btn-lg{padding:17px 28px;font-size:1.05rem}
 :focus-visible{outline:3px solid #ffb3b6;outline-offset:2px}
-.view{display:none}.view.on{display:block}
+.view{display:none}.view.on{display:block;animation:fadein .35s ease both}
+@keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.skip{position:absolute;left:-999px;top:8px;background:var(--red);color:#fff;padding:10px 14px;border-radius:8px;z-index:200;font-weight:700}.skip:focus{left:8px}
+.car .img img,.carpage .gal img{background:#2a2d33}
+.skel{background:linear-gradient(90deg,#2a2d33 25%,#343840 50%,#2a2d33 75%);background-size:200% 100%;animation:sk 1.2s infinite}
+@keyframes sk{to{background-position:-200% 0}}
+.week{display:grid;grid-template-columns:1.1fr .9fr;border-radius:var(--r);overflow:hidden;background:var(--ink);color:#fff}
+.week .img{aspect-ratio:4/3;min-height:100%}.week .img img{width:100%;height:100%;object-fit:cover}
+.week .body{padding:34px;display:grid;gap:14px;align-content:center}
+.week .body p{color:#c5c9d0}
+@media(max-width:860px){.week{grid-template-columns:1fr}}
+.guides{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.guide{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px;display:grid;gap:10px;align-content:start}
+.guide p{color:var(--mute);font-size:.93rem}
+.guide details summary{cursor:pointer;font-weight:700;color:var(--red);list-style:none}
+.guide details[open] summary{margin-bottom:8px}
+.guide details p{margin-top:6px}
+@media(max-width:860px){.guides{grid-template-columns:1fr}}
 
 /* trust bar */
 .trust{background:var(--ink);color:#c5c9d0;font-size:.82rem}
@@ -221,12 +243,43 @@ footer h4{color:#fff;font-size:.95rem;margin-bottom:12px}footer ul{list-style:no
 .mbar a{text-decoration:none;color:var(--ink);font-weight:700;font-size:.78rem;display:grid;place-items:center;gap:2px;padding:9px 0}.mbar a.mid{background:var(--red);color:#fff}
 @media(max-width:900px){.mbar{display:grid}body{padding-bottom:64px}}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:110px;background:var(--ink);color:#fff;padding:12px 18px;border-radius:999px;font-weight:600;opacity:0;transition:opacity .2s;pointer-events:none;z-index:120}.toast.show{opacity:1}
+html{scroll-behavior:smooth}
+/* levende logo */
+.logo .lg{position:relative;width:46px;height:46px;flex:none;border-radius:50%}
+.logo .lg::before{content:"";position:absolute;inset:-3px;border-radius:50%;background:conic-gradient(from 0deg,var(--red),transparent 30%,transparent 70%,var(--red));animation:spin 6s linear infinite;opacity:.9}
+.logo .lg::after{content:"";position:absolute;inset:-3px;border-radius:50%;box-shadow:0 0 0 0 rgba(215,35,43,.45);animation:pulse 3s ease-out infinite}
+.logo .lg img{position:relative;width:46px;height:46px;border-radius:50%;background:#fff;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.logo:hover .lg img{transform:rotate(-8deg) scale(1.06)}
+.logo:hover .lg::before{animation-duration:1.2s}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(215,35,43,.45)}70%{box-shadow:0 0 0 14px rgba(215,35,43,0)}100%{box-shadow:0 0 0 0 rgba(215,35,43,0)}}
+.logo .word{position:relative;overflow:hidden;white-space:nowrap;padding-right:4px}
+.logo .word::after{content:"";position:absolute;top:0;bottom:0;left:-80%;width:40%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.7),transparent);transform:skewX(-20deg);animation:shine 7s ease-in-out infinite}
+@keyframes shine{0%,80%{left:-80%}100%{left:140%}}
+/* nav komprimeres ved scroll */
+.nav.shrunk .wrap{min-height:58px}.nav.shrunk .logo small{display:none}.nav .wrap{transition:min-height .25s}
+/* hero: ken burns + lys-sweep + parallax */
+.hero .bg img{animation:kb 28s ease-in-out infinite alternate;will-change:transform}
+@keyframes kb{from{transform:scale(1.02) translate(0,0)}to{transform:scale(1.12) translate(-2%,-2%)}}
+.hero .sweep{position:absolute;inset:0;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.07) 50%,transparent 60%);background-size:250% 100%;animation:sweep 9s ease-in-out infinite;pointer-events:none}
+@keyframes sweep{0%,60%{background-position:120% 0}100%{background-position:-120% 0}}
+.hero h1 .w{display:inline-block;animation:rise .8s cubic-bezier(.2,.8,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+/* kort: spotlight + tilt */
+.car{--mx:50%;--my:50%;transform-style:preserve-3d}
+.car::after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(320px circle at var(--mx) var(--my),rgba(255,255,255,.18),transparent 45%);opacity:0;transition:opacity .25s;pointer-events:none}
+.car:hover::after{opacity:1}
+.btn-red{position:relative;overflow:hidden}
+.btn-red::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .6s}
+.btn-red:hover::after{transform:translateX(120%)}
+/* scroll reveal */
 .reveal{opacity:1;transform:none}
-@media(prefers-reduced-motion:no-preference){.reveal{transition:opacity .6s,transform .6s}.reveal.pre{opacity:.001;transform:translateY(14px)}}
+@media(prefers-reduced-motion:no-preference){.reveal{transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}.reveal.pre{opacity:.001;transform:translateY(22px)}.reveal.pre.d1{transition-delay:.08s}.reveal.pre.d2{transition-delay:.16s}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-
+<a class="skip" href="#v-home">Spring til indhold</a>
 <div class="trust"><div class="wrap">
   <span class="tp"><i>★★★★★</i> <b>4,4</b> på Trustpilot · 78 anmeldelser</span>
   <span>✓ Medlem af Dansk Bilbrancheråd</span>
@@ -236,7 +289,7 @@ footer h4{color:#fff;font-size:.95rem;margin-bottom:12px}footer ul{list-style:no
 </div></div>
 
 <header class="nav"><div class="wrap">
-  <a href="#home" class="logo"><img src="img/logo.png" alt="NK Biler"><span>NK Biler<small>Svendborg · siden 2008</small></span></a>
+  <a href="#home" class="logo" aria-label="NK Biler, forside"><span class="lg"><img src="img/logo.png" alt=""></span><span class="word">NK Biler<small>Svendborg · siden 2008</small></span></a>
   <nav><ul class="menu" id="menu">
     <li><a href="#biler">Biler til salg</a></li>
     <li><a href="#klassikere">Klassikere</a></li>
@@ -244,23 +297,24 @@ footer h4{color:#fff;font-size:.95rem;margin-bottom:12px}footer ul{list-style:no
     <li><a href="#saelg">Sælg din bil</a></li>
     <li><a href="#udlejning">Udlejning</a></li>
     <li><a href="#finansiering">Finansiering</a></li>
+    <li><a href="#guider">Guider</a></li>
     <li><a href="#om">Om os</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
   </ul></nav>
   <div class="nav-cta">
     <a class="btn btn-line btn-sm" href="tel:+4532111696">32 11 16 96</a>
     <a class="btn btn-red btn-sm" href="#vaerksted">Book værksted</a>
-    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button class="burger" id="burger" aria-label="Menu" aria-controls="menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </div></header>
 
 <!-- ===== HOME ===== -->
 <main class="view on" id="v-home">
 <section class="hero">
-  <div class="bg"><img src="img/664d5e6a9e82438eb7bcceb4d0d8403e.jpg" alt=""></div>
+  <div class="bg"><img src="img/664d5e6a9e82438eb7bcceb4d0d8403e.jpg" alt="" width="400" height="300" fetchpriority="high" id="heroBg"></div><div class="sweep"></div>
   <div class="wrap">
     <span class="eyebrow" style="color:#ff7378">Bilhus og autoværksted · Svendborg</span>
-    <h1 style="margin-top:14px">Find din næste bil hos NK Biler</h1>
+    <h1 style="margin-top:14px" id="heroH">Find din næste bil hos NK Biler</h1>
     <p class="lead">72 biler klar til prøvetur. Hverdagsbiler, elbiler, varevogne og Fyns største samling af klassikere. Alle gennemgået på vores eget værksted.</p>
     <form class="search" id="search">
       <div><label for="sMake">Mærke</label><select id="sMake"><option value="">Alle mærker</option></select></div>
@@ -295,6 +349,10 @@ footer h4{color:#fff;font-size:.95rem;margin-bottom:12px}footer ul{list-style:no
   </div>
 </section>
 
+<section class="sec" style="padding-top:0;margin-top:-20px">
+  <div class="wrap"><div class="week" id="week"></div></div>
+</section>
+
 <section class="sec" style="background:var(--paper)">
   <div class="wrap">
     <div class="sec-head"><div><span class="eyebrow">Derfor NK Biler</span><h2>Tryghed i hele handlen</h2></div></div>
@@ -310,6 +368,17 @@ footer h4{color:#fff;font-size:.95rem;margin-bottom:12px}footer ul{list-style:no
   <div class="wrap">
     <div class="sec-head"><div><span class="eyebrow">Erhverv</span><h2>Varevogne og ladvogne</h2></div><a class="btn btn-line" href="#biler-varevogn">Se alle varevogne →</a></div>
     <div class="grid" id="vans"></div>
+  </div>
+</section>
+
+<section class="sec" id="guider">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">Guider</span><h2>Godt at vide, før du køber</h2></div><p>Korte, ærlige svar på det, kunderne oftest spørger om i butikken.</p></div>
+    <div class="guides">
+      <div class="guide"><h3>Hvad betyder "ekskl. afgift"?</h3><p>Flere af vores specialbiler sælges uden dansk registreringsafgift, fordi de er importeret.</p><details><summary>Læs mere</summary><p>Afgiften beregnes af Motorstyrelsen ud fra bilens handelsværdi i Danmark. For veteranbiler over 35 år er afgiften markant lavere. Vi laver en vejledende afgiftsberegning og klarer import-syn og indregistrering, så du kender den samlede pris, før du siger ja.</p></details></div>
+      <div class="guide"><h3>Sådan køber du en klassiker</h3><p>En klassisk bil er både fornøjelse og værdi. Det vigtigste er dokumentation og rust.</p><details><summary>Læs mere</summary><p>Bed altid om servicehistorik og tidligere synsrapporter, og tjek bund, vanger og hjulkasser. Vores klassikere er gennemgået på eget værksted, og du er velkommen til at tage din egen mekaniker med. Vi rådgiver også om veteranforsikring og opbevaring hen over vinteren.</p></details></div>
+      <div class="guide"><h3>Lån, leasing eller kontant?</h3><p>Det afhænger af, hvor længe du vil beholde bilen, og hvad du vil binde af penge.</p><details><summary>Læs mere</summary><p>Et billån via Resurs Bank giver ejerskab og frihed til at sælge, når du vil. Leasing giver lav månedsydelse og fast udgift i en aftalt periode. Kontant er billigst samlet set. Vi regner alle tre igennem på den bil, du kigger på, så du kan sammenligne på lige vilkår.</p></details></div>
+    </div>
   </div>
 </section>
 
@@ -367,7 +436,7 @@ footer h4{color:#fff;font-size:.95rem;margin-bottom:12px}footer ul{list-style:no
 
 <section class="sec" id="om" style="background:var(--paper)">
   <div class="wrap split">
-    <div class="photo"><img src="img/building.jpg" alt="NK Biler på Porthusvej 129 i Svendborg"></div>
+    <div class="photo"><img src="img/building.jpg" alt="NK Biler på Porthusvej 129 i Svendborg" width="800" height="600" loading="lazy" decoding="async"></div>
     <div>
       <span class="eyebrow">Om NK Biler</span>
       <h2 style="margin-top:10px">Ordentlighed og godt håndværk siden 2008</h2>
@@ -415,7 +484,7 @@ footer h4{color:#fff;font-size:.95rem;margin-bottom:12px}footer ul{list-style:no
 <main class="view" id="v-list">
   <div class="wrap">
     <div class="crumbs"><a href="#home">Forside</a> › <span id="listCrumb">Biler til salg</span></div>
-    <div class="sec-head" style="margin-bottom:20px"><div><h1 id="listTitle" style="font-size:clamp(1.8rem,4vw,2.8rem)">Biler til salg</h1></div><button class="btn btn-line fbtn" id="fOpen">Filtre</button></div>
+    <div class="sec-head" style="margin-bottom:20px"><div><h1 id="listTitle" style="font-size:clamp(1.8rem,4vw,2.8rem)">Biler til salg</h1></div><button class="btn btn-line fbtn" id="fOpen" aria-controls="filters" aria-expanded="false">Filtre</button></div>
     <div class="listing">
       <aside class="filters" id="filters">
         <h3>Filtrér <button type="button" id="resetF">Nulstil</button></h3>
@@ -492,7 +561,7 @@ function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");cl
 const badgeHtml=c=>[...c.tags.map(t=>`<span class="badge ${t==="NYHED"?"red":t==="EKSKL. AFGIFT"?"gold":""}">${TAGL[t]||t}</span>`),(c.oldPrice?`<span class="badge red">Nedsat</span>`:""),(c.body==="Klassiker"?`<span class="badge gold">Klassiker</span>`:"")].join("");
 function card(c){
   return `<a class="car" href="${href(c)}" aria-label="${c.make} ${c.model}">
-    <div class="img"><img src="studio/${c.img}" alt="${c.make} ${c.model} ${c.year}" loading="lazy"><div class="badges">${badgeHtml(c)}</div><button class="fav ${favs.has(c.id)?"on":""}" data-fav="${c.id}" aria-label="Gem som favorit" type="button">${favs.has(c.id)?"♥":"♡"}</button></div>
+    <div class="img"><img src="studio/${c.img}" alt="${c.make} ${c.model} ${c.year}, ${c.fuel}, ${kmTxt(c)}" width="1000" height="750" loading="lazy" decoding="async"><div class="badges">${badgeHtml(c)}</div><button class="fav ${favs.has(c.id)?"on":""}" data-fav="${c.id}" aria-label="Gem som favorit" type="button">${favs.has(c.id)?"♥":"♡"}</button></div>
     <div class="body"><h3>${c.make} ${c.model}</h3><div class="variant">${c.variant||CATL[c.cat]}</div>
     <div class="specs"><span>${c.year}</span><span>${kmTxt(c)}</span><span>${c.fuel}</span><span>${c.gear}</span></div>
     <div class="price-row"><div class="price">${c.oldPrice?`<s>${kr(c.oldPrice)}</s>`:""}${kr(c.price)}<small>${c.tags.includes("EKSKL. AFGIFT")?"ekskl. afgift":c.lease?"leasing fra "+kr(c.lease)+"/md.":"fra "+kr(monthly(c.price))+"/md."}</small></div><span class="cta">Se bilen →</span></div></div></a>`;
@@ -505,6 +574,7 @@ $("#stCount").textContent=CARS.length;$("#stClassic").textContent=classics.lengt
 $("#featured").innerHTML=[...CARS].filter(c=>c.cat!=="mc"&&c.body!=="Klassiker").sort((a,b)=>b.id-a.id).slice(0,6).map(card).join("");
 $("#classicRail").innerHTML=[...classics].sort((a,b)=>b.price-a.price).map(card).join("");
 $("#vans").innerHTML=CARS.filter(c=>c.cat==="varebil").sort((a,b)=>b.id-a.id).slice(0,3).map(card).join("");
+(function(){const w=CARS.find(c=>c.id===3037388)||CARS[0];$("#week").innerHTML=`<div class="img"><img src="studio/${w.img}" alt="${w.make} ${w.model} ${w.year}" width="1000" height="750" loading="lazy" decoding="async"></div><div class="body"><span class="eyebrow" style="color:#ff7378">Ugens bil</span><h2>${w.make} ${w.model}</h2><p>${w.variant} · ${w.year} · ${kmTxt(w)}. ${w.body==="Klassiker"?"Står i vores showroom og kan ses efter aftale.":"Klar til prøvetur i dag."}</p><div class="bigprice" style="font-size:1.8rem">${kr(w.price)}<small>${w.tags.includes("EKSKL. AFGIFT")?"ekskl. afgift":w.lease?"leasing fra "+kr(w.lease)+"/md.":"fra "+kr(monthly(w.price))+"/md."}</small></div><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-red" href="${href(w)}">Se bilen</a><a class="btn btn-ghost" href="tel:+4532111696">Ring 32 11 16 96</a></div></div>`;})();
 $("#svcGrid").innerHTML=SERVICES.map(s=>`<div class="svc"><h3>${s.name}</h3><p>${s.d}</p><span class="from">${s.from}</span><a href="#kontakt">Book tid →</a></div>`).join("");
 $("#rentGrid").innerHTML=RENTALS.map(r=>`<div class="rent"><div class="img"><img src="img/${r.img}" alt="${r.name}" loading="lazy"></div><div class="body"><h3>${r.name}</h3><b>${r.price} <small style="font-weight:600;color:var(--mute)">ekskl. moms</small></b><ul>${r.pts.map(p=>`<li>${p}</li>`).join("")}</ul><a class="btn btn-dark btn-sm" href="#kontakt" style="justify-self:start">Forespørg</a></div></div>`).join("");
 const makes=[...new Set(CARS.map(c=>c.make))].sort();
@@ -533,7 +603,8 @@ $("#fKm").addEventListener("input",e=>{F.km=+e.target.value;$("#fKmVal").textCon
 $("#fFav").addEventListener("change",e=>{F.fav=e.target.checked;render();});
 $("#sort").addEventListener("change",e=>{F.sort=e.target.value;render();});
 $("#resetF").addEventListener("click",()=>{F.reset();syncFilters();});
-$("#fOpen").addEventListener("click",()=>$("#filters").classList.add("open"));$("#fClose").addEventListener("click",()=>$("#filters").classList.remove("open"));
+$("#fOpen").addEventListener("click",()=>{$("#filters").classList.add("open");$("#fOpen").setAttribute("aria-expanded","true");});$("#fClose").addEventListener("click",()=>{$("#filters").classList.remove("open");$("#fOpen").setAttribute("aria-expanded","false");});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){$("#filters").classList.remove("open");$("#menu").classList.remove("open");}});
 function syncFilters(){$("#fSearch").value=F.q;$("#fMake").value=F.make;$("#fPrice").value=F.price;$("#fPriceVal").textContent=kr(F.price);$("#fKm").value=F.km;$("#fKmVal").textContent=F.km.toLocaleString("da-DK");$("#fFav").checked=F.fav;$$("#fCat .chip").forEach(c=>c.classList.toggle("on",F.cat.has(c.dataset.v)));$$("#fBody .chip").forEach(c=>c.classList.toggle("on",F.body.has(c.dataset.v)));$$("#fFuel .chip").forEach(c=>c.classList.toggle("on",F.fuel.has(c.dataset.v)));$$("#fGear .chip").forEach(c=>c.classList.toggle("on",F.gear.has(c.dataset.v)));render();}
 function filtered(){
   let r=CARS.filter(c=>(!F.q||(c.make+" "+c.model+" "+c.variant+" "+c.body+" "+CATL[c.cat]).toLowerCase().includes(F.q))&&(!F.make||c.make===F.make)&&(!F.model||c.model===F.model)&&(!F.cat.size||F.cat.has(c.cat))&&(!F.body.size||F.body.has(c.body))&&(!F.fuel.size||F.fuel.has(c.fuel))&&(!F.gear.size||F.gear.has(c.gear))&&c.price<=F.price&&(c.km==null||c.km<=F.km)&&(!F.fav||favs.has(c.id)));
@@ -548,7 +619,7 @@ function carPage(c){
   <div class="crumbs"><a href="#home">Forside</a> › <a href="#biler">Biler til salg</a> › <span>${c.make} ${c.model}</span></div>
   <div class="carpage">
     <div>
-      <div class="gal"><img id="galImg" src="studio/${c.img}" alt="${c.make} ${c.model} ${c.year}"><div class="badges">${badgeHtml(c)}</div><div class="ba"><button type="button" class="on" data-src="studio/${c.img}">Studie</button><button type="button" data-src="img/${c.img}">Original</button></div><button class="fav ${favs.has(c.id)?"on":""}" data-fav="${c.id}" type="button" aria-label="Gem som favorit">${favs.has(c.id)?"♥":"♡"}</button></div>
+      <div class="gal"><img id="galImg" src="studio/${c.img}" alt="${c.make} ${c.model} ${c.year} i NK Bilers studie" width="1000" height="750" decoding="async"><div class="badges">${badgeHtml(c)}</div><div class="ba"><button type="button" class="on" data-src="studio/${c.img}">Studie</button><button type="button" data-src="img/${c.img}">Original</button></div><button class="fav ${favs.has(c.id)?"on":""}" data-fav="${c.id}" type="button" aria-label="Gem som favorit">${favs.has(c.id)?"♥":"♡"}</button></div>
       <div class="thumbs"><div><img src="studio/${c.img}" alt=""></div><div><img src="img/${c.img}" alt=""></div><a class="more" href="${c.url}" target="_blank" rel="noopener" style="text-decoration:none">Alle fotos på Biltorvet →</a></div>
       <div class="sec-sm"><h2 style="font-size:1.4rem">Specifikationer</h2><div class="kv" style="margin-top:14px">
         <div><span>Årgang</span><b>${c.year}</b></div><div><span>Km</span><b>${kmTxt(c)}</b></div>
@@ -580,12 +651,12 @@ function carPage(c){
   const upd=()=>{const d=+$("#lDown").value,m=+$("#lM").value;$("#lDownV").textContent=d+" %";$("#lMV").textContent=m+" mdr.";$("#loanOut").innerHTML=kr(monthly(c.price,d,m))+`<small>pr. måned · ${d} % udbetaling · ${m} mdr.</small>`;};
   $("#lDown").addEventListener("input",upd);$("#lM").addEventListener("input",upd);
   $("#cform").addEventListener("submit",e=>{e.preventDefault();$("#cOk").classList.add("show");});
-  $("#shareBtn").addEventListener("click",()=>{try{navigator.clipboard.writeText(location.href).then(()=>toast("Link kopieret"),()=>toast(location.href));}catch(e){toast(location.href)}});
+  $("#shareBtn").addEventListener("click",()=>shareCar());
   document.title=`${c.make} ${c.model} ${c.year} · NK Biler`;
 }
 
 /* routing */
-const HOME_SECTIONS=new Set(["home","saelg","vaerksted","udlejning","finansiering","om","kontakt"]);
+const HOME_SECTIONS=new Set(["home","saelg","vaerksted","udlejning","finansiering","guider","om","kontakt"]);
 function show(v){$$(".view").forEach(x=>x.classList.toggle("on",x.id==="v-"+v));}
 function route(){
   const h=(location.hash||"#home").slice(1);
@@ -604,6 +675,22 @@ function route(){
   $$("#menu a").forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+h));
 }
 window.addEventListener("hashchange",route);route();
+
+/* ---- effekter ---- */
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+// overskrift ord for ord
+(function(){const h=$("#heroH");if(!h||RM)return;h.innerHTML=h.textContent.split(" ").map((w,i)=>`<span class="w" style="animation-delay:${i*70}ms">${w}</span>`).join(" ");})();
+// nav skrumper + hero parallax
+window.addEventListener("scroll",()=>{const y=scrollY;document.querySelector(".nav").classList.toggle("shrunk",y>40);const bg=$("#heroBg");if(bg&&!RM&&y<900)bg.style.translate=`0 ${y*0.18}px`;},{passive:true});
+// scroll reveal
+(function(){if(RM||!("IntersectionObserver" in window))return;const els=$$(".sec .sec-head, .sec .grid > *, .props > *, .guides > *, .reviews > *, .rent-grid > *, .svc-grid > *, .week, .split > *");els.forEach((el,i)=>{if(el.getBoundingClientRect().top<innerHeight)return;el.classList.add("reveal","pre",["","d1","d2"][i%3]);});const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.remove("pre");io.unobserve(e.target);}}),{rootMargin:"0px 0px -8% 0px"});els.forEach(el=>io.observe(el));setTimeout(()=>els.forEach(el=>el.classList.remove("pre")),4000);})();
+// tællende tal
+(function(){if(RM)return;const nums=$$(".stats b").filter(b=>/^\d+$/.test(b.textContent));const run=b=>{const to=+b.textContent,t0=performance.now(),d=1100;const f=t=>{const p=Math.min(1,(t-t0)/d),e=1-Math.pow(1-p,3);b.textContent=Math.round(to*e);if(p<1)requestAnimationFrame(f);};requestAnimationFrame(f);};const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){run(e.target);io.unobserve(e.target);}}));nums.forEach(b=>io.observe(b));})();
+// spotlight + tilt på kort
+document.addEventListener("pointermove",e=>{const c=e.target.closest(".car");if(!c||RM||e.pointerType!=="mouse")return;const r=c.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;c.style.setProperty("--mx",x+"px");c.style.setProperty("--my",y+"px");const rx=((y/r.height)-.5)*-4,ry=((x/r.width)-.5)*4;c.style.transform=`translateY(-3px) perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg)`;});
+document.addEventListener("pointerout",e=>{const c=e.target.closest(".car");if(c)c.style.transform="";});
+// Web Share hvor det findes
+window.shareCar=async()=>{const data={title:document.title,url:location.href};try{if(navigator.share){await navigator.share(data);return;}}catch(e){if(e.name==="AbortError")return;}try{await navigator.clipboard.writeText(location.href);toast("Link kopieret");}catch(e){toast(location.href);}};
 </script>
 </body>
 </html>
